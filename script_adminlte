@@ -1,0 +1,22 @@
+
+sleep 2
+echo "Installing -> composer require jeroennoten/laravel-adminlte";
+
+composer require jeroennoten/laravel-adminlte
+
+sleep 2
+echo "Install -> composer require laravel/ui";
+
+composer require laravel/ui
+
+sleep 2
+echo "Install -> php artisan ui:controllers";
+
+php artisan ui:controllers
+
+sleep 2
+echo "Installing -> php artisan adminlte:install";
+
+php artisan adminlte:install
+
+

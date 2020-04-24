@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Home2;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index', function () {
-    return view('index');
+Route::get('/', function () {
+    $homes2 = Home2::all();
+    return view('index', compact('homes2'));
 });
+
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::get('/admin', function(){
+        return view('admin/index');
+    });
+   
+    Route::resource('/admin/home', 'Home2Controller');
+
+});
+
 
 Auth::routes();
 

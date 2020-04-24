@@ -1,9 +1,9 @@
 
 
 
-require('jquery')
+require('jquery');
 global.$ = global.jQuery = require('jquery');
-// require('./jquery/jquery-migrate')
+// require('./jquery/jquery-migrate');
 require('./bootstrap/bootstrap');
 require('jquery.easing');
 require('./superfish/hoverIntent');
