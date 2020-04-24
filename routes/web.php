@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Home2;
+use App\Service1;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,8 @@ use App\Home2;
 
 Route::get('/', function () {
     $homes2 = Home2::all();
-    return view('index', compact('homes2'));
+    $services1 = Service1::all();
+    return view('index', compact('homes2', 'services1'));
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -25,6 +27,8 @@ Route::group(['middleware' => ['auth']], function(){
     });
    
     Route::resource('/admin/home', 'Home2Controller');
+
+    Route::resource('/admin/service1', 'Service1Controller');
 
 });
 

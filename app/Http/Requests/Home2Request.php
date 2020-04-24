@@ -33,9 +33,9 @@ class Home2Request extends FormRequest
     public function messages()
     {
         return [
-            'image.required' => "L'image est requise",
-            'image.min' => "Minimum, 5 caractères",
-            'image.max' => "Maximum, 100 caractères",
+            // 'image.required' => "L'image est requise",
+            // 'image.min' => "Minimum, 5 caractères",
+            // 'image.max' => "Maximum, 100 caractères",
 
             'titre.required' => "Le titre est requis",
             'titre.min' => "Minimum, 5 caractères",

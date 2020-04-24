@@ -215,7 +215,7 @@ return [
         ],
         [
             'text' => 'Services 1',
-            'url'  => 'admin/Services1',
+            'url'  => 'admin/service1',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
