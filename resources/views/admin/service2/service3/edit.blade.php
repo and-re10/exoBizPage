@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content')
-    <form action="{{route('service1.update', $service1->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('service3.update', $service3->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
 
@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label for="">Titre</label>
-                        <input type="text" name="titre" class="form-control @error('titre') is-invalid @enderror" value="{{editError($service1->titre, "titre")}}" id="titre" placeholder="" >
+                        <input type="text" name="titre" class="form-control @error('titre') is-invalid @enderror" value="{{editError($service3->titre, "titre")}}" id="titre" placeholder="" >
                         @error('titre')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label for="">Description</label>
-                        <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{editError($service1->description, "description")}}" id="description" placeholder="">
+                        <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{editError($service3->description, "description")}}" id="description" placeholder="">
                         @error('description')
                             <span class="text-danger">{{$message}}</span>
                         @enderror
@@ -34,7 +34,7 @@
                     <label for="">Icon du Service</label>
 
                     <div class="custom-control custom-radio">
-                      @if ($service1->icon === "ion-ios-bookmarks-outline")
+                      @if ($service3->icon === "ion-ios-bookmarks-outline")
                         <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-bookmarks-outline" checked>
                       @else
                         <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-bookmarks-outline">
@@ -43,7 +43,7 @@
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service1->icon === "ion-ios-stopwatch-outline")
+                      @if ($service3->icon === "ion-ios-stopwatch-outline")
                         <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-stopwatch-outline" checked>
                       @else
                         <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-stopwatch-outline">
@@ -52,7 +52,7 @@
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service1->icon === "ion-ios-heart-outline")
+                      @if ($service3->icon === "ion-ios-heart-outline")
                         <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-heart-outline" checked>
                       @else
                         <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-heart-outline">

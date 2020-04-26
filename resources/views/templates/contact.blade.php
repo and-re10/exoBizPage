@@ -6,7 +6,11 @@
   
           <div class="section-header">
             <h3>Contact Us</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            @if (count($contacts1) !== 0)
+              <p>{{$contacts1[0]->description}}</p>
+            @else
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            @endif
           </div>
   
           <div class="row contact-info">

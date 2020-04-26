@@ -220,27 +220,27 @@ return [
         ],
         [
             'text' => 'About',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/about',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'Services 2',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/service2',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'Portfolio',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/portfolio',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'Team',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/team1',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
             'text' => 'Contact',
-            'url'  => 'admin/settings',
+            'url'  => 'admin/contact1',
             'icon' => 'fas fa-fw fa-lock',
         ],
     ],

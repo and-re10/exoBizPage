@@ -117,7 +117,7 @@ class Home2Controller extends Controller
     public function destroy($id)
     {
         $home2 = Home2::find($id);
-        Storage::delete($home2);
+        Storage::delete($home2->img_path);
         $home2->delete();
 
         return redirect()->back();

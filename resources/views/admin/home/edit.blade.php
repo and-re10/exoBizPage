@@ -41,6 +41,9 @@
 
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <img src="{{asset('storage/'.$home2->img_path)}}" alt="" class="w-100">
+                    </div>
                 </div>
                 <!-- /.card-body -->
 

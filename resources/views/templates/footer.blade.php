@@ -2,7 +2,7 @@
     Footer
   ============================-->
   <footer id="footer">
-    <div class="footer-top">
+    {{-- <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -52,7 +52,7 @@
 
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="container">
       <div class="copyright">

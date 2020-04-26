@@ -33,4 +33,15 @@ function editError($variable, $name = " "){
     };
 };
 
+function filtrePortfolio($variable){
+    switch($variable){
+        case "filter-app":
+            return "filter-app";
+        case "filter-card":
+            return "filter-card";
+        case "filter-web":
+            return "filter-web";
+    };
+}
+
 ?>

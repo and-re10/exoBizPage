@@ -6,49 +6,67 @@
   
           <header class="section-header">
             <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            @if (count($abouts) !== 0)
+              <p>{{$abouts[0]->description}}</p>
+            @else
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            @endif
           </header>
   
           <div class="row about-cols">
-  
-            <div class="col-md-4 wow fadeInUp">
-              <div class="about-col">
-                <div class="img">
-                  <img src="img/about-mission.jpg" alt="" class="img-fluid">
-                  <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+            @if (count($abouts) !== 0)
+            @foreach ($abouts2 as $about2)
+              <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                  <div class="img">
+                    <img src="{{asset('storage/'.$about2->img_path)}}" alt="" class="img-fluid">
+                    <div class="icon"><i class="{{$about2->icon}}"></i></div>
+                  </div>
+                  <h2 class="title"><a href="#">{{$about2->titre}}</a></h2>
+                  <p>{{$about2->description}}</p>
                 </div>
-                <h2 class="title"><a href="#">Our Mission</a></h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
               </div>
-            </div>
-  
-            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-              <div class="about-col">
-                <div class="img">
-                  <img src="img/about-plan.jpg" alt="" class="img-fluid">
-                  <div class="icon"><i class="ion-ios-list-outline"></i></div>
+            @endforeach
+            @else
+              <div class="col-md-4 wow fadeInUp">
+                <div class="about-col">
+                  <div class="img">
+                    <img src="img/about-mission.jpg" alt="" class="img-fluid">
+                    <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                  </div>
+                  <h2 class="title"><a href="#">Our Mission</a></h2>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
                 </div>
-                <h2 class="title"><a href="#">Our Plan</a></h2>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                </p>
               </div>
-            </div>
-  
-            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-              <div class="about-col">
-                <div class="img">
-                  <img src="img/about-vision.jpg" alt="" class="img-fluid">
-                  <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+    
+              <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="about-col">
+                  <div class="img">
+                    <img src="img/about-plan.jpg" alt="" class="img-fluid">
+                    <div class="icon"><i class="ion-ios-list-outline"></i></div>
+                  </div>
+                  <h2 class="title"><a href="#">Our Plan</a></h2>
+                  <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                  </p>
                 </div>
-                <h2 class="title"><a href="#">Our Vision</a></h2>
-                <p>
-                  Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
-                </p>
               </div>
-            </div>
+    
+              <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="about-col">
+                  <div class="img">
+                    <img src="img/about-vision.jpg" alt="" class="img-fluid">
+                    <div class="icon"><i class="ion-ios-eye-outline"></i></div>
+                  </div>
+                  <h2 class="title"><a href="#">Our Vision</a></h2>
+                  <p>
+                    Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
+                  </p>
+                </div>
+              </div>
+            @endif
   
           </div>
   
