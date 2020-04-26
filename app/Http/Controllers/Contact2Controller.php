@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Contact2Request;
 use App\Contact2;
 use App\Contact1;
+use App\Contact3;
 
 class Contact2Controller extends Controller
 {
@@ -17,10 +18,11 @@ class Contact2Controller extends Controller
      */
     public function index()
     {
-        $contacts2 = Contat2::all();
+        $contacts2 = Contact2::all();
         $contacts1 = Contact1::all();
+        $contacts3  = Contact3::all();
         
-        return view('admin.contact.index', compact('contacts1', 'contacts2'));
+        return view('admin.contact.index', compact('contacts1', 'contacts2', 'contacts3'));
     }
 
     /**
@@ -53,6 +55,7 @@ class Contact2Controller extends Controller
         $contact2->icon_phone = request('iconPhone');
         $contact2->titre_phone = request('titrePhone');
         $contact2->phone = request('phone');
+        $contact2->save();
 
         return redirect()->route('contact2.index');
     }
@@ -88,10 +91,22 @@ class Contact2Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Contact2Request $request, $id)
+    public function update(Request $request, $id)
     {
         $contact2 = Contact2::find($id);
+        $contact2->icon_address = request('iconAddress');
+        $contact2->titre_address = request('titreAddress');
+        $contact2->address = request('address');
 
+        $contact2->icon_email = request('iconEmail');
+        $contact2->titre_email = request('titreEmail');
+        $contact2->email = request('email');
+
+        $contact2->icon_phone = request('iconPhone');
+        $contact2->titre_phone = request('titrePhone');
+        $contact2->phone = request('phone');
+        $contact2->save();
+        
         return redirect()->route('contact2.index');
     }
 

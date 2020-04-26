@@ -12,6 +12,7 @@ use App\Team1;
 use App\Team2;
 use App\Contact1;
 use App\Contact2;
+use App\Contact3;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,10 @@ Route::get('/', function () {
     $teams1 = Team1::all();
     $teams2 = Team2::all();
     $contacts1 = Contact1::all();
-    $conacts2 = Contact2::all();
+    $contacts2 = Contact2::all();
+    $contacts3 = Contact3::all();
 
-    return view('index', compact('homes2', 'services1', 'abouts', 'abouts2', 'services2', 'services3', 'portfolios', 'teams1', 'teams2', 'contacts1', 'contacts2'));
+    return view('index', compact('homes2', 'services1', 'abouts', 'abouts2', 'services2', 'services3', 'portfolios', 'teams1', 'teams2', 'contacts1', 'contacts2', 'contacts3'));
 });
 
 Route::group(['middleware' => ['auth']], function(){
@@ -65,6 +67,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/admin/team2', 'Team2Controller');
 
     Route::resource('/admin/contact1', 'Contact1Controller');
+
+    Route::resource('/admin/contact2', 'Contact2Controller');
+
+    Route::resource('/admin/contact3' , 'Contact3Controller');
 
 });
 

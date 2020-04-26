@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\Contact1Request;
+use App\Http\Requests\Contact3Request;
 use App\Contact1;
 use App\Contact2;
 use App\Contact3;
 
-class Contact1Controller extends Controller
+class Contact3Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,7 +32,7 @@ class Contact1Controller extends Controller
      */
     public function create()
     {
-        return view('admin.contact.create');
+        //
     }
 
     /**
@@ -41,13 +41,16 @@ class Contact1Controller extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Contact1Request $request)
+    public function store(Contact3Request $request)
     {
-        $contact1 = new Contact1();
-        $contact1->description = request('description');
-        $contact1->save();
+        $contact3 = new Contact3();
+        $contact3->name = request('name');
+        $contact3->email = request('email');
+        $contact3->subject = request('subject');
+        $contact3->message = request('message');
+        $contact3->save();
 
-        return redirect()->route('contact1.index');
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +61,9 @@ class Contact1Controller extends Controller
      */
     public function show($id)
     {
-        //
+        $contact3 = Contact3::findOrFail($id);
+
+        return view('admin.contact.contact3.show', compact('contact3'));
     }
 
     /**
@@ -69,9 +74,7 @@ class Contact1Controller extends Controller
      */
     public function edit($id)
     {
-        $contact1 = Contact1::find($id);
-        
-        return view('admin.contact.edit', compact('contact1'));
+        //
     }
 
     /**
@@ -81,13 +84,9 @@ class Contact1Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Contact1Request $request, $id)
+    public function update(Contact3Request $request, $id)
     {
-        $contact1 = Contact1::find($id);
-        $contact1->description = request('description');
-        $contact1->save();
-
-        return redirect()->route('contact1.index');
+        //
     }
 
     /**
@@ -98,9 +97,9 @@ class Contact1Controller extends Controller
      */
     public function destroy($id)
     {
-        $contact1 = Contact1::find($id);
-        Storage::delete($contact1);
-        $contact1->delete();
+        $contact3 = Contact3::find($id);
+        Storage::delete($contact3);
+        $contact3->delete();
 
         return redirect()->back();
     }

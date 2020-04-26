@@ -14,7 +14,7 @@ require('./lightbox/lightbox.min.js');
 require('./touchSwipe/jquery.touchSwipe.min.js');
 
 //Contact Form
-require('./contactform')
+// require('./contactform')
 
 // main.js
 require('./main')

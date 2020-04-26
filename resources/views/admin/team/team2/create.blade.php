@@ -25,7 +25,7 @@
                     {{-- Job --}}
                     <div class="form-group">
                         <label for="">Job</label>
-                        <input type="text" name="job" class="form-control @error('job') is-invalid @enderror" value="{{old('jpb')}}" id="job" placeholder="">
+                        <input type="text" name="job" class="form-control @error('job') is-invalid @enderror" value="{{old('job')}}" id="job" placeholder="">
                         @error('job')
                             <span class="text-danger">{{$message}}</span>
                         @enderror

@@ -32,7 +32,7 @@
 									<tr class="">
 										<td>{{maxStr($contact1->description, 65)}}</td>
 										<td>
-											<form action="{{route('contact1.destroy', $contact1->id)}}" method="POST" enctype="multipart/form-data">
+											<form action="{{route('contact1.destroy', $contact1->id)}}" method="POST" enctype="multipart/form-data" class="d-flex justify-content-end">
 												@csrf
 												@method('delete')
 												<a href="{{route('contact1.edit', $contact1->id)}}" class="btn btn-primary">Modifier</a>
@@ -49,7 +49,7 @@
 					<!-- /.card -->
 
 
-				{{-- <a href="{{route('team2.create')}}" class="btn btn-primary">Créer</a>
+				<a href="{{route('contact2.create')}}" class="btn btn-primary">Créer</a>
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
@@ -71,30 +71,35 @@
 							<table class="table table-hover text-nowrap">
 								<thead>
 									<tr>
-                                        <th>Image</th>
-										<th>Name</th>
-										<th>Job</th>
-                                        <th>Url 1</th>
-                                        <th>Url 2</th>
-                                        <th>Url 3</th>
-                                        <th>Url 4</th>
+                                        <th>Icon</th>
+										<th>Titre</th>
+										<th>Contact</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach ($teams2 as $team2)
-										<tr class="">
-											<td>{{maxStr($team2->name, 20)}}</td>
-											<td>{{maxStr($team2->job, 20)}}</td>
-                                            <td><img src="{{asset('storage/'.$team2->img_path)}}" alt="" class="w-100"></td>
-                                            <td>{{maxStr($team2->url1, 10)}}</td>
-                                            <td>{{maxStr($team2->url2, 10)}}</td>
-                                            <td>{{maxStr($team2->url3, 10)}}</td>
-                                            <td>{{maxStr($team2->url4, 10)}}</td>
+									@foreach ($contacts2 as $contact2)
+										<tr>
+                                            <td class="">
+                                                <i class="{{$contact2->icon_address}}"></i><br>
+                                                <i class="{{$contact2->icon_email}}"></i><br>
+                                                <i class="{{$contact2->icon_phone}}"></i>
+                                                
+                                             </td>   
+                                             <td class="">
+                                                {{maxStr($contact2->titre_address, 20)}}<br>
+                                                {{maxStr($contact2->titre_email, 20)}}<br>
+                                                {{maxStr($contact2->titre_phone, 20)}}
+                                            </td> 
+                                            <td class="">
+                                                {{maxStr($contact2->address, 20)}}<br>
+                                                {{maxStr($contact2->email, 20)}}<br>
+                                                {{maxStr($contact2->phone, 20)}}
+                                            </td>
 											<td>
-												<form action="{{route('team2.destroy', $team2->id)}}" method="POST" enctype="multipart/form-data">
+												<form action="{{route('contact2.destroy', $contact2->id)}}" method="POST" enctype="multipart/form-data"  class="d-flex justify-content-end">
 													@csrf
 													@method('delete')
-													<a href="{{route('team2.edit', $team2->id)}}" class="btn btn-primary">Modifier</a>
+													<a href="{{route('contact2.edit', $contact2->id)}}" class="btn btn-primary">Modifier</a>
 													<button type="submit" class="btn btn-danger">Supprimer</button>
 												</form>
 											</td>
@@ -106,7 +111,107 @@
 						<!-- /.card-body -->
 					</div>
 						<!-- /.card -->
-				</div>	 --}}
+                </div>	
+                
+                <div class="col-md-12">
+                    <div class="card card-primary card-outline">
+                      <div class="card-header">
+                        <h3 class="card-title">Inbox</h3>
+          
+                        <div class="card-tools">
+                          <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Search Mail">
+                            <div class="input-group-append">
+                              <div class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.card-tools -->
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body p-0">
+                        <div class="mailbox-controls">
+                          <!-- Check all button -->
+                          <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                          </button>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                          </div>
+                          <!-- /.btn-group -->
+                          <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                          <div class="float-right">
+                            1-50/200
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                              <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <!-- /.btn-group -->
+                          </div>
+                          <!-- /.float-right -->
+                        </div>
+                        <div class="table-responsive mailbox-messages">
+                          <table class="table table-hover table-striped">
+                            <tbody>
+                            @foreach ($contacts3 as $contact3)
+                                <tr>
+                                    <td>
+                                        <div class="icheck-primary">
+                                            <input type="checkbox" value="" id="check1">
+                                            <label for="check1"></label>
+                                        </div>
+                                    </td>
+                                    <td class="mailbox-star">
+                                        <a href="#">
+                                            <i class="fas fa-star text-warning"></i>
+                                        </a>
+                                    </td>
+                                    <td class="mailbox-name">
+                                        <a href="{{route('contact3.show', $contact3->id)}}">{{$contact3->name}}</a>
+                                    </td>
+                                    <td class="mailbox-subject">
+                                        <b>{{$contact3->subject}}</b> - {{maxStr($contact3->message, 20)}}
+                                    </td>
+                                    <td class="mailbox-attachment"></td>
+                                    <td class="mailbox-date">5 mins ago</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                          </table>
+                          <!-- /.table -->
+                        </div>
+                        <!-- /.mail-box-messages -->
+                      </div>
+                      <!-- /.card-body -->
+                      <div class="card-footer p-0">
+                        <div class="mailbox-controls">
+                          <!-- Check all button -->
+                          <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="far fa-square"></i>
+                          </button>
+                          <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-sm"><i class="far fa-trash-alt"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-reply"></i></button>
+                            <button type="button" class="btn btn-default btn-sm"><i class="fas fa-share"></i></button>
+                          </div>
+                          <!-- /.btn-group -->
+                          <button type="button" class="btn btn-default btn-sm"><i class="fas fa-sync-alt"></i></button>
+                          <div class="float-right">
+                            1-50/200
+                            <div class="btn-group">
+                              <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-left"></i></button>
+                              <button type="button" class="btn btn-default btn-sm"><i class="fas fa-chevron-right"></i></button>
+                            </div>
+                            <!-- /.btn-group -->
+                          </div>
+                          <!-- /.float-right -->
+                        </div>
+                      </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
 			</div>
 		</div>
 @endsection

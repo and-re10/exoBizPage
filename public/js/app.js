@@ -37816,7 +37816,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /* WEBPACK VAR INJECTION */(function(global) {__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // require('./jquery/jquery-migrate')
+global.$ = global.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // require('./jquery/jquery-migrate');
 
 __webpack_require__(/*! ./bootstrap/bootstrap */ "./resources/js/bootstrap/bootstrap.js");
 
@@ -37839,9 +37839,8 @@ __webpack_require__(/*! ./isotope/isotope.pkgd.min.js */ "./resources/js/isotope
 __webpack_require__(/*! ./lightbox/lightbox.min.js */ "./resources/js/lightbox/lightbox.min.js");
 
 __webpack_require__(/*! ./touchSwipe/jquery.touchSwipe.min.js */ "./resources/js/touchSwipe/jquery.touchSwipe.min.js"); //Contact Form
-
-
-__webpack_require__(/*! ./contactform */ "./resources/js/contactform.js"); // main.js
+// require('./contactform')
+// main.js
 
 
 __webpack_require__(/*! ./main */ "./resources/js/main.js");
@@ -37917,147 +37916,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/contactform.js":
-/*!*************************************!*\
-  !*** ./resources/js/contactform.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-jQuery(document).ready(function ($) {
-  "use strict"; //Contact
-
-  $('form.contactForm').submit(function () {
-    var f = $(this).find('.form-group'),
-        ferror = false,
-        emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
-    f.children('input').each(function () {
-      // run all inputs
-      var i = $(this); // current input
-
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-
-        var pos = rule.indexOf(':', 0);
-
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
-
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-
-            break;
-
-          case 'email':
-            if (!emailExp.test(i.val())) {
-              ferror = ierror = true;
-            }
-
-            break;
-
-          case 'checked':
-            if (!i.is(':checked')) {
-              ferror = ierror = true;
-            }
-
-            break;
-
-          case 'regexp':
-            exp = new RegExp(exp);
-
-            if (!exp.test(i.val())) {
-              ferror = ierror = true;
-            }
-
-            break;
-        }
-
-        i.next('.validation').html(ierror ? i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input' : '').show('blind');
-      }
-    });
-    f.children('textarea').each(function () {
-      // run all inputs
-      var i = $(this); // current input
-
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-
-        var pos = rule.indexOf(':', 0);
-
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
-
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-
-            break;
-        }
-
-        i.next('.validation').html(ierror ? i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input' : '').show('blind');
-      }
-    });
-    if (ferror) return false;else var str = $(this).serialize();
-    var action = $(this).attr('action');
-
-    if (!action) {
-      action = 'contactform/contactform.php';
-    }
-
-    $.ajax({
-      type: "POST",
-      url: action,
-      data: str,
-      success: function success(msg) {
-        // alert(msg);
-        if (msg == 'OK') {
-          $("#sendmessage").addClass("show");
-          $("#errormessage").removeClass("show");
-          $('.contactForm').find("input, textarea").val("");
-        } else {
-          $("#sendmessage").removeClass("show");
-          $("#errormessage").addClass("show");
-          $('#errormessage').html(msg);
-        }
-      }
-    });
-    return false;
-  });
-});
 
 /***/ }),
 

@@ -14,37 +14,67 @@
           </div>
   
           <div class="row contact-info">
-  
-            <div class="col-md-4">
-              <div class="contact-address">
-                <i class="ion-ios-location-outline"></i>
-                <h3>Address</h3>
-                <address>A108 Adam Street, NY 535022, USA</address>
+            
+            @if (count($contacts2) !== 0)
+                @foreach ($contacts2 as $contact2)
+                  <div class="col-md-4">
+                    <div class="contact-address">
+                      <i class="{{$contact2->icon_address}}"></i>
+                      <h3>{{$contact2->titre_address}}</h3>
+                      <address>{{$contact2->address}}</address>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4">
+                    <div class="contact-phone">
+                      <i class="{{$contact2->icon_phone}}"></i>
+                      <h3>{{$contact2->titre_phone}}</h3>
+                      <p><a href="tel:+155895548855">{{$contact2->phone}}</a></p>
+                    </div>
+                  </div>
+        
+                  <div class="col-md-4">
+                    <div class="contact-email">
+                      <i class="{{$contact2->icon_email}}"></i>
+                      <h3>{{$contact2->titre_email}}</h3>
+                      <p><a href="mailto:info@example.com">{{$contact2->email}}</a></p>
+                    </div>
+                  </div>
+                @endforeach
+            @else
+              <div class="col-md-4">
+                <div class="contact-address">
+                  <i class="ion-ios-location-outline"></i>
+                  <h3>Address</h3>
+                  <address>A108 Adam Street, NY 535022, USA</address>
+                </div>
               </div>
-            </div>
-  
-            <div class="col-md-4">
-              <div class="contact-phone">
-                <i class="ion-ios-telephone-outline"></i>
-                <h3>Phone Number</h3>
-                <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+    
+              <div class="col-md-4">
+                <div class="contact-phone">
+                  <i class="ion-ios-telephone-outline"></i>
+                  <h3>Phone Number</h3>
+                  <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                </div>
               </div>
-            </div>
-  
-            <div class="col-md-4">
-              <div class="contact-email">
-                <i class="ion-ios-email-outline"></i>
-                <h3>Email</h3>
-                <p><a href="mailto:info@example.com">info@example.com</a></p>
+    
+              <div class="col-md-4">
+                <div class="contact-email">
+                  <i class="ion-ios-email-outline"></i>
+                  <h3>Email</h3>
+                  <p><a href="mailto:info@example.com">info@example.com</a></p>
+                </div>
               </div>
-            </div>
+            @endif
   
           </div>
   
           <div class="form">
-            <div id="sendmessage">Your message has been sent. Thank you!</div>
-            <div id="errormessage"></div>
-            <form action="" method="post" role="form" class="contactForm">
+            {{-- <div id="sendmessage">Your message has been sent. Thank you!</div> --}}
+            {{-- <div id="errormessage"></div> --}}
+            <form action="{{route('contact3.store')}}" method="post" role="form" class="contactForm" enctype="multipart/form-data">
+              @csrf
+
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
