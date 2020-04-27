@@ -21,7 +21,7 @@
                   <li class="nav-item active">
                     <a href="#" class="nav-link">
                       <i class="fas fa-inbox"></i> Inbox
-                      <span class="badge bg-primary float-right">12</span>
+                      <span class="badge bg-primary float-right">{{nbPosts($contacts3)}}</span>
                     </a>
                   </li>
                   <li class="nav-item">
@@ -49,32 +49,7 @@
               </div>
               <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Labels</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <ul class="nav nav-pills flex-column">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-circle text-danger"></i> Important</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-circle text-warning"></i> Promotions</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="far fa-circle text-primary"></i> Social</a>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.card-body -->
-            </div>
+            
             <!-- /.card -->
           </div>
           <!-- /.col -->
@@ -91,8 +66,8 @@
             <!-- /.card-header -->
             <div class="card-body p-0">
               <div class="mailbox-read-info">
-                <h5>Message Subject Is Placed Here</h5>
-                <h6>From: support@adminlte.io
+                <h5>{{$contact3->subject}}</h5>
+                <h6>{{$contact3->email}}
                   <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span></h6>
               </div>
               <!-- /.mailbox-read-info -->
@@ -111,11 +86,7 @@
               </div>
               <!-- /.mailbox-controls -->
               <div class="mailbox-read-message">
-                <p>Hello John,</p>
-
-                <p></p>
-
-                <p>Thanks,<br>Jane</p>
+                <p>{{$contact3->message}}</p>
               </div>
               <!-- /.mailbox-read-message -->
             </div>
@@ -144,28 +115,6 @@
                         </span>
                   </div>
                 </li>
-                <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo1.png" alt="Attachment"></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo1.png</a>
-                        <span class="mailbox-attachment-size clearfix mt-1">
-                          <span>2.67 MB</span>
-                          <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                        </span>
-                  </div>
-                </li>
-                <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="../../dist/img/photo2.png" alt="Attachment"></span>
-
-                  <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo2.png</a>
-                        <span class="mailbox-attachment-size clearfix mt-1">
-                          <span>1.9 MB</span>
-                          <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
-                        </span>
-                  </div>
-                </li>
               </ul>
             </div>
             <!-- /.card-footer -->
@@ -174,8 +123,15 @@
                 <button type="button" class="btn btn-default"><i class="fas fa-reply"></i> Reply</button>
                 <button type="button" class="btn btn-default"><i class="fas fa-share"></i> Forward</button>
               </div>
-              <button type="button" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
+              <div class="d-flex">
+                <form action="{{route('contact3.destroy', $contact3->id)}}" method="post" enctype="multipart/form-data">
+                  @csrf
+                  @method('delete')
+                <button type="submit" class="btn btn-default"><i class="far fa-trash-alt"></i> Delete</button>
+              </form>
               <button type="button" class="btn btn-default"><i class="fas fa-print"></i> Print</button>
+              </div>
+              
             </div>
             <!-- /.card-footer -->
           </div>

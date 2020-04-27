@@ -2,12 +2,13 @@
 	@section('content')
 	{{-- table --}}
 		<div class="container">
-			<a href="{{route('home.create')}}" class="btn btn-primary">Créer</a>
+			<h1 class="text-center mb-5">Section Home</h1>
+			<a href="{{route('home.create')}}" class="btn btn-primary mb-3">Créer</a>
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">Home</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -32,10 +33,10 @@
 							<tbody>
 								@foreach ($homes2 as $home2)
 									<tr class="">
-										<td><img src="{{asset('storage/'.$home2->img_path)}}" class="rounded-circle w-50" alt=""></td>
+										<td><img src="{{asset('storage/'.$home2->img_path)}}" class=" w-50" alt=""></td>
 										<td>{{maxStr($home2->titre, 20)}}</td>
 										<td>{{maxStr($home2->description, 20)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('home.destroy', $home2->id)}}" method="POST" enctype="multipart/form-data">
 												@csrf
 												@method('delete')

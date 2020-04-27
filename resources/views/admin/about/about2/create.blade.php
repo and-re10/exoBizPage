@@ -30,34 +30,19 @@
 
                     <div class="form-group">
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-bookmarks-outline">
-                          <label for="customRadio1" class="custom-control-label"><i class="ion-ios-bookmarks-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-speedometer-outline">
+                          <label for="customRadio1" class="custom-control-label"><i class="fas fa-tachometer-alt"></i></label>
                         </div>
     
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-stopwatch-outline">
-                          <label for="customRadio2" class="custom-control-label"><i class="ion-ios-stopwatch-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-list-outline">
+                          <label for="customRadio2" class="custom-control-label"><i class="far fa-list-alt"></i></label>
                         </div>
     
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-heart-outline">
-                          <label for="customRadio3" class="custom-control-label"><i class="ion-ios-heart-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-eye-outline">
+                          <label for="customRadio3" class="custom-control-label"><i class="far fa-eye"></i></label>
                         </div>
-                        
-                        {{-- <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio4" name="icon" value="fas fa-images">
-                          <label for="customRadio4" class="custom-control-label"><i class="fas fa-images"></i></label>
-                        </div>
-                        
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio5" name="icon" value="fas fa-road">
-                          <label for="customRadio5" class="custom-control-label"><i class="fas fa-road"></i></label>
-                        </div>
-                        
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="customRadio6" name="icon" value="fa fa-shopping-bag">
-                          <label for="customRadio6" class="custom-control-label"><i class="fa fa-shopping-bag"></i></label>
-                        </div> --}}
 
                         @error('icon')
                         <span class="text-danger">{{$message}}</span>

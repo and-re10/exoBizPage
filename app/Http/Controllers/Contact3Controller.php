@@ -62,8 +62,9 @@ class Contact3Controller extends Controller
     public function show($id)
     {
         $contact3 = Contact3::findOrFail($id);
+        $contacts3 = Contact3::all();
 
-        return view('admin.contact.contact3.show', compact('contact3'));
+        return view('admin.contact.contact3.show', compact('contact3', 'contacts3'));
     }
 
     /**
@@ -101,6 +102,6 @@ class Contact3Controller extends Controller
         Storage::delete($contact3);
         $contact3->delete();
 
-        return redirect()->back();
+        return redirect()->route('contact3.index');
     }
 }

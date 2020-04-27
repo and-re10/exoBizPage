@@ -35,11 +35,11 @@
                     <div class="form-group">
                         <label for="">Icon Address</label>
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="address1" name="iconAddress" value="ion-ios-bookmarks-outline">
-                          <label for="address1" class="custom-control-label"><i class="ion-ios-bookmarks-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="address1" name="iconAddress" value="ion-ios-location-outline" checked>
+                          <label for="address1" class="custom-control-label"><i class="fas fa-map-marker-alt"></i></label>
                         </div>
     
-                        <div class="custom-control custom-radio">
+                        {{-- <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="address2" name="iconAddress" value="ion-ios-stopwatch-outline">
                           <label for="address2" class="custom-control-label"><i class="ion-ios-stopwatch-outline"></i></label>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="address3" name="iconAddress" value="ion-ios-heart-outline">
                           <label for="address3" class="custom-control-label"><i class="ion-ios-heart-outline"></i></label>
-                        </div>
+                        </div> --}}
 
                         @error('iconAddress')
                         <span class="text-danger">{{$message}}</span>
@@ -77,11 +77,11 @@
                     <div class="form-group">
                         <label for="">Icon Email</label>
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="email1" name="iconEmail" value="ion-ios-bookmarks-outline">
-                          <label for="email1" class="custom-control-label"><i class="ion-ios-bookmarks-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="email1" name="iconEmail" value="ion-ios-email-outline" checked>
+                          <label for="email1" class="custom-control-label"><i class="far fa-envelope"></i></label>
                         </div>
     
-                        <div class="custom-control custom-radio">
+                        {{-- <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="email2" name="iconEmail" value="ion-ios-stopwatch-outline">
                           <label for="email2" class="custom-control-label"><i class="ion-ios-stopwatch-outline"></i></label>
                         </div>
@@ -89,7 +89,7 @@
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="email3" name="iconEmail" value="ion-ios-heart-outline">
                           <label for="email3" class="custom-control-label"><i class="ion-ios-heart-outline"></i></label>
-                        </div>
+                        </div> --}}
 
                         @error('iconEmail')
                         <span class="text-danger">{{$message}}</span>
@@ -115,15 +115,15 @@
                         @enderror
                     </div>
 
-                    {{-- Icon Email --}}
+                    {{-- Icon Phone --}}
                     <div class="form-group">
                         <label for="">Icon Phone</label>
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="phone1" name="iconPhone" value="ion-ios-bookmarks-outline">
-                          <label for="phone1" class="custom-control-label"><i class="ion-ios-bookmarks-outline"></i></label>
+                          <input class="custom-control-input" type="radio" id="phone1" name="iconPhone" value="ion-ios-telephone-outline" checked>
+                          <label for="phone1" class="custom-control-label"><i class="fas fa-phone"></i></i></label>
                         </div>
     
-                        <div class="custom-control custom-radio">
+                        {{-- <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="phone2" name="iconPhone" value="ion-ios-stopwatch-outline">
                           <label for="phone2" class="custom-control-label"><i class="ion-ios-stopwatch-outline"></i></label>
                         </div>
@@ -131,7 +131,7 @@
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input" type="radio" id="phone3" name="iconPhone" value="ion-ios-heart-outline">
                           <label for="phone3" class="custom-control-label"><i class="ion-ios-heart-outline"></i></label>
-                        </div>
+                        </div> --}}
 
                         @error('iconPhone')
                         <span class="text-danger">{{$message}}</span>

@@ -2,12 +2,15 @@
 	@section('content')
 	{{-- About 1 --}}
 		<div class="container">
-			<a href="{{route('contact1.create')}}" class="btn btn-primary">Créer</a>
+      <h1 class="text-center mb-5">Section Contact</h1>
+      @if (count($contacts1) === 0)
+      <a href="{{route('contact1.create')}}" class="btn btn-primary mb-3">Créer</a>
+      @endif
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">Description de la Section</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -31,7 +34,7 @@
 								@foreach ($contacts1 as $contact1)
 									<tr class="">
 										<td>{{maxStr($contact1->description, 65)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('contact1.destroy', $contact1->id)}}" method="POST" enctype="multipart/form-data" class="d-flex justify-content-end">
 												@csrf
 												@method('delete')
@@ -48,13 +51,14 @@
 				</div>
 					<!-- /.card -->
 
-
-				<a href="{{route('contact2.create')}}" class="btn btn-primary">Créer</a>
+          @if (count($contacts2) === 0)
+           <a href="{{route('contact2.create')}}" class="btn btn-primary mt-5 mb-3">Créer</a>
+          @endif
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Responsive Hover Table</h3>
+								<h3 class="card-title">Données de l'Admin</h3>
 
 								<div class="card-tools">
 									<div class="input-group input-group-sm" style="width: 150px;">
@@ -71,7 +75,7 @@
 							<table class="table table-hover text-nowrap">
 								<thead>
 									<tr>
-                                        <th>Icon</th>
+                      <th>Icon</th>
 										<th>Titre</th>
 										<th>Contact</th>
 									</tr>
@@ -79,23 +83,23 @@
 								<tbody>
 									@foreach ($contacts2 as $contact2)
 										<tr>
-                                            <td class="">
-                                                <i class="{{$contact2->icon_address}}"></i><br>
-                                                <i class="{{$contact2->icon_email}}"></i><br>
-                                                <i class="{{$contact2->icon_phone}}"></i>
-                                                
-                                             </td>   
-                                             <td class="">
-                                                {{maxStr($contact2->titre_address, 20)}}<br>
-                                                {{maxStr($contact2->titre_email, 20)}}<br>
-                                                {{maxStr($contact2->titre_phone, 20)}}
-                                            </td> 
-                                            <td class="">
-                                                {{maxStr($contact2->address, 20)}}<br>
-                                                {{maxStr($contact2->email, 20)}}<br>
-                                                {{maxStr($contact2->phone, 20)}}
-                                            </td>
-											<td>
+                        <td class="">
+                            <i class="{{changeIcon($contact2->icon_address)}}"></i><br>
+                            <i class="{{changeIcon($contact2->icon_email)}}"></i><br>
+                            <i class="{{changeIcon($contact2->icon_phone)}}"></i>
+                            
+                          </td>   
+                          <td class="">
+                            {{maxStr($contact2->titre_address, 20)}}<br>
+                            {{maxStr($contact2->titre_email, 20)}}<br>
+                            {{maxStr($contact2->titre_phone, 20)}}
+                        </td> 
+                        <td class="">
+                            {{maxStr($contact2->address, 20)}}<br>
+                            {{maxStr($contact2->email, 20)}}<br>
+                            {{maxStr($contact2->phone, 20)}}
+                        </td>
+											<td class="d-flex justify-content-end">
 												<form action="{{route('contact2.destroy', $contact2->id)}}" method="POST" enctype="multipart/form-data"  class="d-flex justify-content-end">
 													@csrf
 													@method('delete')
@@ -113,7 +117,7 @@
 						<!-- /.card -->
                 </div>	
                 
-                <div class="col-md-12">
+                <div class="col-md-12 my-5 ">
                     <div class="card card-primary card-outline">
                       <div class="card-header">
                         <h3 class="card-title">Inbox</h3>

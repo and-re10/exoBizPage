@@ -25,7 +25,7 @@ class PortfolioRequest extends FormRequest
     {
         return [
             "titre" => "required|min:5|max:30",
-            "description" => "required|min:5|max:100",
+            "description" => "required|min:5|max:30",
             "filtre" => "required|min:5|max:20",
         ];
     }
@@ -39,7 +39,7 @@ class PortfolioRequest extends FormRequest
 
             "description.required" => "La description est requise",
             "description.min" => "Minimum, 5 caractères",
-            "description.max" => "Maximum, 100 caractères",
+            "description.max" => "Maximum, 30 caractères",
 
             "filtre.required" => "Le filtre est requis",
             "filtre.min" => "Minimum, 5 caractères",

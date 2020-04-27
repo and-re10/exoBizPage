@@ -45,7 +45,12 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/admin', function(){
-        return view('admin/index');
+        $services3 = Service3::all();
+        $portfolios = Portfolio::all();
+        $teams2 = Team2::all();
+        $contacts3 = Contact3::all();
+
+        return view('admin/index', compact('services3', 'portfolios', 'teams2', 'contacts3'));
     });
    
     Route::resource('/admin/home', 'Home2Controller');

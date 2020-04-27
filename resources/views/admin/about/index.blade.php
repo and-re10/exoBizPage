@@ -2,12 +2,15 @@
 	@section('content')
 	{{-- About 1 --}}
 		<div class="container">
-			<a href="{{route('about.create')}}" class="btn btn-primary">Créer</a>
+			<h1 class="text-center mb-5">Section About</h1>
+			@if (count($abouts) === 0)
+				<a href="{{route('about.create')}}" class="btn btn-primary mb-3">Créer</a>
+			@endif
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">Description de la Section</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -31,7 +34,7 @@
 								@foreach ($abouts as $about)
 									<tr class="">
 										<td>{{maxStr($about->description, 65)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('about.destroy', $about->id)}}" method="POST" enctype="multipart/form-data">
 												@csrf
 												@method('delete')
@@ -52,12 +55,14 @@
 		</div>
 
 		{{-- About 2 --}}
-			<a href="{{route('about2.create')}}" class="btn btn-primary">Créer</a>
+			@if (count($abouts2) < 3)
+				<a href="{{route('about2.create')}}" class="btn btn-primary mb-3 mt-5">Créer</a>
+			@endif
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">About Us</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -84,10 +89,10 @@
 								@foreach ($abouts2 as $about2)
 									<tr class="">
 										<td><img src="{{asset('storage/'.$about2->img_path)}}" alt=""  class="w-100"></td>
-										<td><i class="{{$about2->icon}}"></i></td>
-										<td>{{maxStr($about2->titre, 65)}}</td>
+										<td><i class="{{changeIcon($about2->icon)}}"></i></td>
+										<td>{{maxStr($about2->titre, 20)}}</td>
 										<td>{{maxStr($about2->description, 20)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('about2.destroy', $about2->id)}}" method="POST" enctype="multipart/form-data">
 												@csrf
 												@method('delete')

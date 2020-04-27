@@ -34,58 +34,58 @@
                     <label for="">Icon du Service</label>
 
                     <div class="custom-control custom-radio">
+                      @if ($service3->icon === "ion-ios-analytics-outline")
+                        <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-analytics-outline" checked>
+                      @else
+                        <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-analytics-outline">
+                      @endif
+                      <label for="customRadio1" class="custom-control-label"><i class="fas fa-chart-pie"></i></label>
+                    </div>
+  
+                    <div class="custom-control custom-radio">
                       @if ($service3->icon === "ion-ios-bookmarks-outline")
-                        <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-bookmarks-outline" checked>
+                        <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-bookmarks-outline" checked>
                       @else
-                        <input class="custom-control-input" type="radio" id="customRadio1" name="icon" value="ion-ios-bookmarks-outline">
+                        <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-bookmarks-outline">
                       @endif
-                      <label for="customRadio1" class="custom-control-label"><i class="ion-ios-bookmarks-outline"></i></label>
+                      <label for="customRadio2" class="custom-control-label"><i class="far fa-bookmark"></i></label>
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service3->icon === "ion-ios-stopwatch-outline")
-                        <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-stopwatch-outline" checked>
+                      @if ($service3->icon === "ion-ios-paper-outline")
+                        <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-paper-outline" checked>
                       @else
-                        <input class="custom-control-input" type="radio" id="customRadio2" name="icon" value="ion-ios-stopwatch-outline">
+                        <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-paper-outline">
                       @endif
-                      <label for="customRadio2" class="custom-control-label"><i class="ion-ios-stopwatch-outline"></i></label>
+                      <label for="customRadio3" class="custom-control-label"><i class="far fa-sticky-note"></i></label>
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service3->icon === "ion-ios-heart-outline")
-                        <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-heart-outline" checked>
+                      @if ($service3->icon === "ion-ios-speedometer-outline")
+                        <input class="custom-control-input" type="radio" id="customRadio4" name="icon" value="ion-ios-speedometer-outline" checked>
                       @else
-                        <input class="custom-control-input" type="radio" id="customRadio3" name="icon" value="ion-ios-heart-outline">
+                        <input class="custom-control-input" type="radio" id="customRadio4" name="icon" value="ion-ios-speedometer-outline">
                       @endif
-                      <label for="customRadio3" class="custom-control-label"><i class="ion-ios-heart-outline"></i></label>
-                    </div>
-  
-                    {{-- <div class="custom-control custom-radio">
-                      @if ($service1->icon === "fas fa-images")
-                        <input class="custom-control-input" type="radio" id="customRadio4" name="icon" value="fas fa-images" checked>
-                      @else
-                        <input class="custom-control-input" type="radio" id="customRadio4" name="icon" value="fas fa-images">
-                      @endif
-                      <label for="customRadio4" class="custom-control-label"><i class="fas fa-images"></i></label>
+                      <label for="customRadio4" class="custom-control-label"><i class="fas fa-tachometer-alt"></i></label>
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service1->icon === "fas fa-road")
-                        <input class="custom-control-input" type="radio" id="customRadio5" name="icon" value="fas fa-road" checked>
+                      @if ($service3->icon === "ion-ios-barcode-outline")
+                        <input class="custom-control-input" type="radio" id="customRadio5" name="icon" value="ion-ios-barcode-outline" checked>
                       @else
-                        <input class="custom-control-input" type="radio" id="customRadio5" name="icon" value="fas fa-road">
+                        <input class="custom-control-input" type="radio" id="customRadio5" name="icon" value="ion-ios-barcode-outline">
                       @endif
-                      <label for="customRadio5" class="custom-control-label"><i class="fas fa-road"></i></label>
+                      <label for="customRadio5" class="custom-control-label"><i class="fas fa-barcode"></i></label>
                     </div>
   
                     <div class="custom-control custom-radio">
-                      @if ($service1->icon === "fa fa-shopping-bag")
-                        <input class="custom-control-input" type="radio" id="customRadio6" name="icon" value="fa fa-shopping-bag" checked>
+                      @if ($service3->icon === "ion-ios-people-outline")
+                        <input class="custom-control-input" type="radio" id="customRadio6" name="icon" value="ion-ios-people-outline" checked>
                       @else
-                        <input class="custom-control-input" type="radio" id="customRadio6" name="icon" value="fa fa-shopping-bag">
+                        <input class="custom-control-input" type="radio" id="customRadio6" name="icon" value="ion-ios-people-outline">
                       @endif
-                      <label for="customRadio6" class="custom-control-label"><i class="fa fa-shopping-bag"></i></label>
-                    </div> --}}
+                      <label for="customRadio6" class="custom-control-label"><i class="fas fa-users"></i></label>
+                    </div>
                     @error('icon')
                         <span class="text-danger">{{$message}}</span>
                     @enderror

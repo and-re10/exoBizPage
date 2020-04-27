@@ -13,7 +13,7 @@ class Service2Request extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,16 +24,16 @@ class Service2Request extends FormRequest
     public function rules()
     {
         return [
-            "description" => "required|min:5|max:100"
+            "description" => "required|min:5|max:100",
         ];
     }
 
     public function messages()
     {
         return [
-            "description.required" => "La description est requise"
-            "description.min" => "Minimum, 5 caractères"
-            "description.required" => "Maximum, 100 caractères"
+            "description.required" => "La description est requise",
+            "description.min" => "Minimum, 5 caractères",
+            "description.required" => "Maximum, 100 caractères",
         ];
     }
 }

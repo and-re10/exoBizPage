@@ -51,28 +51,28 @@
                         <label for="exampleInputFile">Photo</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text" style="width: 45px"><i class="fab fa-twitter"></i></span>
                             </div>
                             <input type="text" class="form-control" name="url1" value="{{editError($team2->url1, "url1")}}" placeholder="Username">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text" style="width: 45px"><i class="fab fa-facebook-f"></i></span>
                             </div>
                             <input type="text" class="form-control" name="url2" value="{{editError($team2->url2, "url2")}}" placeholder="Username">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text" style="width: 45px"><i class="fab fa-google-plus-g"></i></span>
                             </div>
                             <input type="text" class="form-control" name="url3" value="{{editError($team2->url3, "url3")}}" placeholder="Username">
                         </div>
 
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">@</span>
+                                <span class="input-group-text" style="width: 45px"><i class="fab fa-linkedin-in"></i></span>
                             </div>
                             <input type="text" class="form-control" name="url4" value="{{editError($team2->url4, "url4")}}" placeholder="Username">
                         </div>

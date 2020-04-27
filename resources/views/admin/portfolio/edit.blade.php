@@ -23,7 +23,7 @@
                         @else
                             <input class="custom-control-input" type="radio" id="customRadio1" name="filtre" value="filter-app">
                         @endif
-                        <label for="customRadio1" class="custom-control-label"><i class="filter-app"></i></label>
+                        <label for="customRadio1" class="custom-control-label">App</label>
                         </div>
     
                         <div class="custom-control custom-radio">
@@ -32,7 +32,7 @@
                         @else
                             <input class="custom-control-input" type="radio" id="customRadio2" name="filtre" value="filter-card">
                         @endif
-                        <label for="customRadio2" class="custom-control-label"><i class="filter-card"></i></label>
+                        <label for="customRadio2" class="custom-control-label">Card</label>
                         </div>
     
                         <div class="custom-control custom-radio">
@@ -41,7 +41,7 @@
                         @else
                             <input class="custom-control-input" type="radio" id="filtre3" name="filtre" value="filter-web">
                         @endif
-                        <label for="filtre3" class="custom-control-label"><i class="filter-web"></i></label>
+                        <label for="filtre3" class="custom-control-label">Web</i></label>
                         </div>
     
                         @error('filtre')

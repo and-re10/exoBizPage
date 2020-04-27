@@ -2,12 +2,15 @@
 	@section('content')
 	{{-- table --}}
 		<div class="container">
-			<a href="{{route('service1.create')}}" class="btn btn-primary">Créer</a>
+			<h1 class="text-center mb-5">Section Services 1</h1>
+			@if (count($services1) < 3)
+				<a href="{{route('service1.create')}}" class="btn btn-primary mb-3">Créer</a>
+			@endif
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">Service 1</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -33,11 +36,11 @@
 								@foreach ($services1 as $service1)
 									<tr class="">
                                         <td>
-                                            <i class="{{$service1->icon}}"></i>
+                                            <i class="{{changeIcon($service1->icon)}}"></i>
                                         </td>
 										<td>{{maxStr($service1->titre, 20)}}</td>
 										<td>{{maxStr($service1->description, 20)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('service1.destroy', $service1->id)}}" method="POST" enctype="multipart/form-data">
 												@csrf
 												@method('delete')

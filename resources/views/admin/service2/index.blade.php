@@ -2,12 +2,15 @@
 	@section('content')
 	{{-- About 1 --}}
 		<div class="container">
-			<a href="{{route('service2.create')}}" class="btn btn-primary">Créer</a>
+			<h1 class="text-center mb-5">Section Services 2</h1>
+			@if (count($services2) === 0)
+			<a href="{{route('service2.create')}}" class="btn btn-primary mb-3">Créer</a>
+			@endif
 			<div class="row">
 				<div class="col-12">
 					<div class="card">
 						<div class="card-header">
-							<h3 class="card-title">Responsive Hover Table</h3>
+							<h3 class="card-title">Description de la Section</h3>
 
 							<div class="card-tools">
 								<div class="input-group input-group-sm" style="width: 150px;">
@@ -31,7 +34,7 @@
 								@foreach ($services2 as $service2)
 									<tr class="">
 										<td>{{maxStr($service2->description, 65)}}</td>
-										<td>
+										<td class="d-flex justify-content-end">
 											<form action="{{route('service2.destroy', $service2->id)}}" method="POST" enctype="multipart/form-data">
 												@csrf
 												@method('delete')
@@ -49,12 +52,12 @@
 					<!-- /.card -->
 
 
-				<a href="{{route('service3.create')}}" class="btn btn-primary">Créer</a>
+				<a href="{{route('service3.create')}}" class="btn btn-primary mb-3 mt-5">Créer</a>
 				<div class="row">
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Responsive Hover Table</h3>
+								<h3 class="card-title">Services</h3>
 
 								<div class="card-tools">
 									<div class="input-group input-group-sm" style="width: 150px;">
@@ -80,11 +83,11 @@
 									@foreach ($services3 as $service3)
 										<tr class="">
 											<td>
-												<i class="{{$service3->icon}}"></i>
+												<i class="{{changeIcon($service3->icon)}}"></i>
 											</td>
 											<td>{{maxStr($service3->titre, 20)}}</td>
 											<td>{{maxStr($service3->description, 20)}}</td>
-											<td>
+											<td class="d-flex justify-content-end">
 												<form action="{{route('service3.destroy', $service3->id)}}" method="POST" enctype="multipart/form-data">
 													@csrf
 													@method('delete')

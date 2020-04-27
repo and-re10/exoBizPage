@@ -14,17 +14,32 @@
                 <div class="card-body">
                     <div class="form-group">
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="filtre1" name="filtre" value="filter-app">
+                            @if (old('filtre') == "filter-app")
+                                <input class="custom-control-input" type="radio" id="filtre1" name="filtre" value="filter-app" checked>
+                            @else
+                                <input class="custom-control-input" type="radio" id="filtre1" name="filtre" value="filter-app">
+                            @endif
+                          
                           <label for="filtre1" class="custom-control-label">App</label>
                         </div>
     
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input"      type="radio" id="filtre2" name="filtre" value="filter-card">
+                            @if (old('filtre') == "filter-card")
+                                <input class="custom-control-input"      type="radio" id="filtre2" name="filtre" value="filter-card" checked>
+                            @else
+                                <input class="custom-control-input"      type="radio" id="filtre2" name="filtre" value="filter-card">
+                            @endif
+                          
                           <label for="filtre2" class="custom-control-label">Card</label>
                         </div>
     
                         <div class="custom-control custom-radio">
-                          <input class="custom-control-input" type="radio" id="filtre3" name="filtre" value="filter-web">
+                            @if (old('filtre') == "filter-web")
+                                <input class="custom-control-input" type="radio" id="filtre3" name="filtre" value="filter-web" checked>
+                            @else
+                                <input class="custom-control-input" type="radio" id="filtre3" name="filtre" value="filter-web">
+                            @endif
+                          
                           <label for="filtre3"
                           class="custom-control-label">Web</label>
                         </div>
